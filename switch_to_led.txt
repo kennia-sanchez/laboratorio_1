@@ -1,0 +1,14 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+-- Simple entity that connects the SW switches to the LEDR lights --
+
+ENTITY switch_to_led IS
+	PORT(	SW   : IN  STD_LOGIC_VECTOR (9 DOWNTO 0);
+			LEDR : OUT STD_LOGIC_VECTOR (9 DOWNTO 0));
+END switch_to_led;
+
+ARCHITECTURE Behavior OF switch_to_led IS
+BEGIN
+	LEDR <= SW;
+END Behavior;

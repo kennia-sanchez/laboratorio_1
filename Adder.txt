@@ -1,0 +1,20 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_signed.all;
+
+ENTITY Adder IS
+	GENERIC ( n : INTEGER := 16);
+	PORT ( X, Y : IN  STD_LOGIC_VECTOR (n-1 DOWNTO 0);
+			 Cin  : IN  STD_LOGIC;
+			 S    : OUT STD_LOGIC_VECTOR (n-1 DOWNTO 0);
+			 Cout : OUT STD_LOGIC );
+END Adder;
+
+ARCHITECTURE Behavior OF Adder IS
+
+	SIGNAL Sum : STD_LOGIC_VECTOR (n DOWNTO 0);
+BEGIN
+	Sum  <= ('0' & X) + ('0' & Y) + Cin;
+	S    <= Sum (n-1 DOWNTO 0);
+	Cout <= Sum (16);
+END Behavior;
